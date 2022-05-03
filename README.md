@@ -3,6 +3,16 @@
 ## Description
 This libarary has been written for the PhageBox extension module. It assumes access to the Arduino Libraries. This is an embedded C implementation of PCR using a finite state machine. This then controls GPIO registers directorly (bare metal) and implements a timer for switching states. The outcome of these modules is finite state machine that can control peltier (heating) modules on the device.
 
+
+## Testing
+
+How did you prove that your code is correct?
+
+The code was proven correct by ensuring timing was vissually accurate and by turning the heaters on. Likewise, GPIO testing was validated visually by turning on the on board electromagnets and the relays for the peltier modules.
+
+Error cases were handled using print outs to the serial port, if the end user supplies commands that are not recognized by the serial parsing module. A python script was originally used to send commands through UART, but the Serial window provided by the Arduino IDE did the job needed for testing the ability to change temperature through UAART.
+
+
 ## Documentation / About
 
 ### VIDEO on project
