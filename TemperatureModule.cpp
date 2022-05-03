@@ -27,9 +27,20 @@ void TemperatureModule::update_states() {
 
     if (*internal_timer >= get_currentTimeLen()) {
         go2nextstate();
-        reset_timer(internal_timer);
-        if (current_state == ELONGATE)
+        Serial.print("TIME PASSED = ");
+        Serial.print(*internal_timer);
+        Serial.println(" seconds \n");
+        if (current_state == ELONGATE) {
             number_cycles_used++;
+            Serial.println("Switching to ELONGATE \n");
+        } else if (current_state == ANNEAL) {
+            Serial.println("Switching to ANNEAL \n");
+        } else if (current_state == DENATURE) {
+            Serial.println("Switching to DENATURE \n");
+            
+        }
+        reset_timer(internal_timer);
+        
     }
     // Serial.println("cycle_count \n");
     // Serial.println(cycle_count);

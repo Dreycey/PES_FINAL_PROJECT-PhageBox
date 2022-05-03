@@ -14,7 +14,7 @@ TemperatureModule *temp_modules[TEMPMODULE_COUNT] = {&temp_Ctrl_1, &temp_Ctrl_2}
 // Defined in header
 void init_phagebox() {
     init_timer();
-    initialize_gpio_pins();
+    initialize_gpio_pins(); 
     Serial.println("<Arduino is ready>");
 }
 
@@ -25,15 +25,9 @@ void start_phagebox() {
     // if PCR is on, evaluate
     for (int i=0; i<TEMPMODULE_COUNT; i++) {
         TemperatureModule *curr_temp_module = temp_modules[i];
-        //Serial.println(curr_temp_module);
         if (curr_temp_module->current_state != STOPPED) { // if ON...
-            // Serial.println("ITS ONNNNNNNNNNNNNNnn");
             int curr_temp = curr_temp_module->getTemp();
             int desired_temp = curr_temp_module->get_desiredTemp();
-            Serial.println("curr_temp:");
-            Serial.println(curr_temp);
-            Serial.println("desired_temp:");
-            Serial.println(desired_temp);
             // bang bang controller
             if (curr_temp <= desired_temp) {
                 curr_temp_module->heater_on();
