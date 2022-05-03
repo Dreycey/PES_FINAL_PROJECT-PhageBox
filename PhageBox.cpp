@@ -15,6 +15,12 @@ void init_phagebox() {
     init_timer();
     initialize_gpio_pins(); 
     Serial.println("<Arduino is ready>");
+
+    // toggle LED to show it is on.
+    for (int i=0; i < 8; i++) {
+        toggle_pin(LED_PIN);
+        adv_delay(1);
+    }
 }
 
 // Defined in header
