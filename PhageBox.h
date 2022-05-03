@@ -1,14 +1,25 @@
-
-
+/*
+ * Descripton:
+ *     This module is the high level module
+ *     for controlling the library. These methods
+ *     are the only methods needed to use when initializing
+ *     the phagebox.
+ */
 #ifndef  PhageBox_h
 #define PhageBox_h 
-
-
 // IN-HOUSE PACKAGES
 #include "timer.h"
 #include "GPIO_Control.h"
 #include "serial_parser.h"
 #include "TemperatureModule.h"
+
+// Check Arduino                                                                           
+#if (ARDUINO >= 100)
+ #include <Arduino.h>
+#else
+ #include <WProgram.h>
+ #include <pins_arduino.h>
+#endif
 
 /*
  * Function: 
@@ -43,7 +54,5 @@ void init_phagebox();
  *     void/NA
  */
 void start_phagebox();
-
-
 
 #endif

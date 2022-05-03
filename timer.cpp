@@ -1,10 +1,14 @@
 #include "timer.h"
-
 #define ONE_SECOND (15625)
+
+
 
 
 /*
  * Global timers.
+ *     These are incremented during interupts
+ *     to keep track of times and create delay
+ *     methods.
  */
 volatile int g_TIMER_OVERFLOW = 0;
 volatile int g_TIMER_OVERFLOW_1 = 0;
@@ -14,9 +18,10 @@ volatile int g_TIMER_OVERFLOW_2 = 0;
  * This function initializes the 
  * timer using compare register B and
  * the max prescaler.
+ * 
+ * Also Defined in Header
  */
 void init_timer() {
-
     TCCR1A = 0;
     
     // set prescaler - 1024 divider
@@ -61,15 +66,12 @@ void adv_delay(int seconds2delay) {
        ;;
 }
 
-//void TIM1_COMPB(void) 
+// ISR interup handler
 ISR(TIMER1_COMPB_vect) {
     char cSREG;
     cSREG = SREG; /* store SREG value */
     /* disable interrupts during timed sequence */
     cli();
-
-    // Serial.print(g_TIMER_OVERFLOW);
-    // Serial.print("\n");
     // increment timer
     g_TIMER_OVERFLOW++;
     g_TIMER_OVERFLOW_1++;

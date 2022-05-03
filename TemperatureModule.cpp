@@ -3,6 +3,7 @@
 
 
 
+
 // Defined in header
 TemperatureModule::TemperatureModule(uint8_t relay_pin, uint8_t tempsense_pin, volatile int* timer) {
     // start in off state
@@ -22,9 +23,6 @@ TemperatureModule::TemperatureModule(uint8_t relay_pin, uint8_t tempsense_pin, v
 
 // Defined in header
 void TemperatureModule::update_states() {
-    // Serial.println("*internal_timer");
-    // Serial.println(*internal_timer);
-
     if (*internal_timer >= get_currentTimeLen()) {
         go2nextstate();
         Serial.print("TIME PASSED = ");
@@ -37,13 +35,9 @@ void TemperatureModule::update_states() {
             Serial.println("Switching to ANNEAL \n");
         } else if (current_state == DENATURE) {
             Serial.println("Switching to DENATURE \n");
-            
         }
         reset_timer(internal_timer);
-        
     }
-    // Serial.println("cycle_count \n");
-    // Serial.println(cycle_count);
     if (number_cycles_used >= cycle_count) {
         stop_pcr();
     }

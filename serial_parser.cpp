@@ -2,6 +2,7 @@
 
 
 
+
 /*
  * Descripton:
  *     This buffer holds onto the string
@@ -14,9 +15,6 @@ const char endMarker = '>';
 byte bytesRecvd = 0;
 boolean readInProgress = false;
 boolean newDataFromPC = false;
-
-
-
 
 // Defined in header
 void getDataFromPC(TemperatureModule *temp_modules[]) {
@@ -53,7 +51,6 @@ void getDataFromPC(TemperatureModule *temp_modules[]) {
 void parseData(TemperatureModule *temp_modules[]) {
 
   // split the data into its parts
-    
   char * strtokIndx; // this is used by strtok() as an index
   int newFlashInterval = 0;
   const char delim[2] = ",";
@@ -117,6 +114,7 @@ void parseData(TemperatureModule *temp_modules[]) {
     // parse mag value
     strtokIndx = strtok(NULL, delim); //parse on delimm
     int mag_val = atoi(strtokIndx); // str2int
+
     // parse LED
     strtokIndx = strtok(NULL, delim); //parse on delimm
     int led_val = atoi(strtokIndx); // str2int

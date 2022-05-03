@@ -1,6 +1,19 @@
+/*
+ * Descripton:
+ *     This module contains the data strutures
+ *     for creatinig temperature control modules.
+ *     Each of these modules contains it's own
+ *     finite state machine using a table implpimentation.
+ */
 #ifndef  TemperatureModule_h                                                            
 #define TemperatureModule_h                                            
-                                                                                
+#include "OneWire.h"
+#include "DallasTemperature.h"
+#include "GPIO_Control.h"
+#include "timer.h"
+#define NUM_STATES (4)
+
+// Check Arduino                                                                          
 #if (ARDUINO >= 100)
  #include <Arduino.h>
 #else
@@ -8,19 +21,11 @@
  #include <pins_arduino.h>
 #endif
 
-#include "OneWire.h"
-#include "DallasTemperature.h"
-#include "GPIO_Control.h"
-#include "timer.h"
-#define NUM_STATES (4)
-
-
-
 /*
  * pcr_state
  *
- * This enum describes the different PCR states
- * available.
+ *     This enum describes the different PCR states
+ *     available.
  * 
  * NOTE: if you add to this update NUM_STATES
  */
@@ -44,7 +49,6 @@ struct States {
 	int temp;
 	pcr_state next_state;
 };
-
 
 /*
  * Class: 
@@ -97,7 +101,7 @@ private:
 	int cycle_count = 0;
 	int number_cycles_used = 0;
 	volatile int* internal_timer;
-    /*
+	/*
 	* state_table
 	* ------------------
 	* For this particular FSM, we define the following
@@ -105,11 +109,11 @@ private:
 	* delay times, next state, and the state's color.
 	*/
 	struct States state_table[NUM_STATES] = 
-    {
-	  {STOPPED, 0, 0, STOPPED},
-	  {DENATURE, 0, 0, ANNEAL},
-	  {ANNEAL, 0, 0, ELONGATE},
-	  {ELONGATE, 0, 0, DENATURE}
+	{
+		{STOPPED, 0, 0, STOPPED},
+		{DENATURE, 0, 0, ANNEAL},
+		{ANNEAL, 0, 0, ELONGATE},
+		{ELONGATE, 0, 0, DENATURE}
 	};
 };
 

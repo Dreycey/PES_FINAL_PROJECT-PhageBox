@@ -1,6 +1,5 @@
 #include "GPIO_Control.h"
 
-
 // Defined in header
 void initialize_gpio_pins() {
     int num_portd_gpio_pins = 4;

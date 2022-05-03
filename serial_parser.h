@@ -1,6 +1,17 @@
+/*
+ * Descripton:
+ *     This module is the serial parsing module
+ *     for the PhageBox. It is used to 
+ *     parse incoming commands to allow for certain GPIO
+ *     pins to be activate or for specifying PCR temperatures
+ *     and times.
+ */
 #ifndef  serial_parser_h                                                            
 #define serial_parser_h                                            
-                                                                                
+#include "TemperatureModule.h"
+#include "GPIO_Control.h"
+
+// Check Arduino                                                                           
 #if (ARDUINO >= 100)
  #include <Arduino.h>
 #else
@@ -8,8 +19,8 @@
  #include <pins_arduino.h>
 #endif
 
-#include "TemperatureModule.h"
-#include "GPIO_Control.h"
+
+
 
 
 /*

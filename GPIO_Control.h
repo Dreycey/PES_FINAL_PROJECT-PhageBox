@@ -1,9 +1,21 @@
-
 /*
-*/
+ * Descripton:
+ *     This module controls the GPIO pins
+ *     and contains information about the GPIO
+ *     peripherals on the PhageBox.
+ */
 #ifndef  GPIO_Control_h                                                            
-#define GPIO_Control_h                                                    
-                                                                                
+#define GPIO_Control_h
+// GPIO Defines.                                                
+#define LED_PIN (3)
+#define RELAY_MAG (5)
+#define RELAY_TEMP1 (6)
+#define RELAY_TEMP2 (7)
+#define FRONT_TEMPSENSE_PIN (10)
+#define METAL_TEMPSENSE_PIN (11)
+#define BACK_TEMPSENSE_PIN  (12)
+
+// Check Arduino                                                                         
 #if (ARDUINO >= 100)
  #include <Arduino.h>
 #else
@@ -11,16 +23,7 @@
  #include <pins_arduino.h>
 #endif
 
-#define LED_PIN (3)
-#define RELAY_MAG (5)
-#define RELAY_TEMP1 (6)
-#define RELAY_TEMP2 (7)
-
-#define FRONT_TEMPSENSE_PIN (10)
-#define METAL_TEMPSENSE_PIN (11)
-#define BACK_TEMPSENSE_PIN  (12)
-
-// int num_portd_gpio_pins = 4;
+// list with all GPIO pins for referencing.
 const int portd_gpio_pins[4] = {LED_PIN, RELAY_MAG, RELAY_TEMP1, RELAY_TEMP1};
 
 /*

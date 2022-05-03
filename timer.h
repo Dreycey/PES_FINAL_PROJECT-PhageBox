@@ -1,8 +1,17 @@
-
-
+/*
+ * Descripton:
+ *     This module contains the timer(s) used
+ *     by the phagebox software. These timers 
+ *     are used to ensure accurate timing for the 
+ *     finite state machine imlimentation of PCR.
+ * 
+ *     The timer works by cauing an interupt after 
+ *     one second and incrementing a counter.
+ */
 #ifndef  timer_h                                                            
 #define timer_h                                                    
-                                                                                
+
+// Check Arduino                                                                      
 #if (ARDUINO >= 100)
  #include <Arduino.h>
 #else
@@ -82,6 +91,5 @@ volatile int*  get_timer_1();
  *     void/NA
  */
 volatile int*  get_timer_2();
-
 
 #endif
