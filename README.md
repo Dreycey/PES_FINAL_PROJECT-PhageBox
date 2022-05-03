@@ -1,5 +1,13 @@
 # PhageBox Arduino Library
 
+### VIDEO on project
+
+Please watch the following video for a descriptive overview:
+
+https://youtu.be/Ule5zzMIgWQ
+
+There are also slides here in the repository.
+
 ## Description
 This libarary has been written for the PhageBox extension module. It assumes access to the Arduino Libraries. This is an embedded C implementation of PCR using a finite state machine. This then controls GPIO registers directorly (bare metal) and implements a timer for switching states. The outcome of these modules is finite state machine that can control peltier (heating) modules on the device.
 
@@ -16,15 +24,6 @@ Error cases were handled using print outs to the serial port, if the end user su
 
 
 ## Documentation / About
-
-### VIDEO on project
-
-Please watch the following video for a descriptive overview:
-
-
-https://youtu.be/Ule5zzMIgWQ
-
-There are also slides here in the repository.
 
 ### Block Diagram
 The below outlines the software used to impliment the finite state machine controlled PCR.
