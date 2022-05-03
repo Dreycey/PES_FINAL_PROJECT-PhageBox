@@ -1,32 +1,26 @@
 #include "PhageBox.h" 
-
-
-
 #define TEMPMODULE_COUNT  (2)
+
+
+
+
+/*
+ * Globals
+ *    The globall temp_modules below are used for each
+ *    of the temperature modules on the device. 
+ */
 TemperatureModule *temp_modules[TEMPMODULE_COUNT] = {&temp_Ctrl_1, &temp_Ctrl_2};
 
-
+// Defined in header
 void init_phagebox() {
     init_timer();
     initialize_gpio_pins();
     Serial.println("<Arduino is ready>");
 }
 
+// Defined in header
 void start_phagebox() {
-    // testing PCR
-    // int time_now = temp_Ctrl_1.current_state;
-    // Serial.print(time_now);
-    // temp_Ctrl_1.go2nextstate();
-    // temp_Ctrl_1.toggle_relay();
-    // Serial.println(temp_Ctrl_2.getTemp());
-    
-    // toggle_pin(LED_PIN);
-
-    // Read data from serial, update GPIO & TempModules.
     getDataFromPC(temp_modules);
-
-    // Update states for finite state machine.
-    // adv_delay(1);
 
     // if PCR is on, evaluate
     for (int i=0; i<TEMPMODULE_COUNT; i++) {

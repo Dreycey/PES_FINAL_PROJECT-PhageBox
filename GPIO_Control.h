@@ -65,8 +65,32 @@ void toggle_pin(int PIN_NUMBER);
  */
 void initialize_gpio_pins();
 
+/*
+ * Function: 
+ *     toggle_pin_on()
+ * Description:
+ *     toggles a specified pin to be on.
+ * Input:
+ *     void/NA
+ * Output: 
+ *     void/NA
+ * Error Handling:
+ *     void/NA
+ */
 void toggle_pin_on(int PIN_NUMBER);
 
+/*
+ * Function: 
+ *     toggle_pin_off()
+ * Description:
+ *     toggles a specified pin to be off
+ * Input:
+ *     void/NA
+ * Output: 
+ *     void/NA
+ * Error Handling:
+ *     void/NA
+ */
 void toggle_pin_off(int PIN_NUMBER);
 
 #endif

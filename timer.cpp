@@ -18,12 +18,6 @@ volatile int g_TIMER_OVERFLOW_2 = 0;
 void init_timer() {
 
     TCCR1A = 0;
-
-    // set timer to reset on compare
-//    TCCR1A &= ~(1 << 1);
-//    TCCR1A |= (1 << 1);
-//    TCCR1B |= (1 << 3);
-//    TCCR1B |= (1 << 4);
     
     // set prescaler - 1024 divider
     TCCR1B |= (1 << 0);
@@ -43,23 +37,20 @@ void init_timer() {
     sei(); // start interupts using status register
 }
 
-
+// Defined in header
 void reset_timer(volatile int* timer) {
     *timer = 0;
 }
 
-void reset_timer_2() {
-    g_TIMER_OVERFLOW_2 = 0;
-}
-
+// Defined in header
 volatile int* get_timer_1() {
     return &g_TIMER_OVERFLOW_1;
 }
 
+// Defined in header
 volatile int*  get_timer_2() {
     return &g_TIMER_OVERFLOW_2;
 }
-
 
 /*
  * input number of seconds for delay

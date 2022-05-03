@@ -46,6 +46,20 @@ struct States {
 };
 
 
+/*
+ * Class: 
+ *     TemperatureModule 
+ * Description:
+ *     This class creates a temperature control module, having access
+ *     to both a heater and a temperature sensor. This class holds a table-based
+ *     finite state machine representing PCR for processing the temperature.
+ * Input:
+ *     void/NA
+ * Output: 
+ *     void/NA
+ * Error Handling:
+ *     void/NA
+ */
 class TemperatureModule 
 {
 public:
@@ -102,8 +116,6 @@ private:
 /*
  * Global temperature sensors
  */
-// volatile int* p_g_TIMER_OVERFLOW_1 = get_timer_1();
-// volatile int* p_g_TIMER_OVERFLOW_2 = get_timer_2();
 static TemperatureModule temp_Ctrl_2(RELAY_TEMP1, FRONT_TEMPSENSE_PIN, get_timer_1());
 static TemperatureModule temp_Ctrl_1(RELAY_MAG, BACK_TEMPSENSE_PIN, get_timer_2());
 

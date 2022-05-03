@@ -19,7 +19,6 @@ boolean newDataFromPC = false;
 
 
 // Defined in header
-// adopted from - https://forum.arduino.cc/t/data-input-demo-sketch/229829
 void getDataFromPC(TemperatureModule *temp_modules[]) {
 
     // receive data from PC and save it into inputBuffer
@@ -50,12 +49,7 @@ void getDataFromPC(TemperatureModule *temp_modules[]) {
   }
 }
 
-/*
- *
- * strtok - C library function
- *          breaks on delimiter
- * adopted from - https://forum.arduino.cc/t/data-input-demo-sketch/229829
-*/
+// Defined in header
 void parseData(TemperatureModule *temp_modules[]) {
 
   // split the data into its parts
